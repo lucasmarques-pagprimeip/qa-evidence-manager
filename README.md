@@ -163,7 +163,6 @@ Algumas funcionalidades que podem ser incorporadas ao projeto:
 
 Quality Assurance | QA
 Professor Universitário
-Doutorando em Ciência da Computação
 
 ---
 
