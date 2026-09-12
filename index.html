@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador de Evidências</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234338ca'/%3E%3Cpath d='M32 9 49 16v15c0 13.6-14.8 21.6-17 22.7-2.2-1.1-17-9.1-17-22.7V16Z' fill='none' stroke='%23ffffff' stroke-width='3.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M23.5 31.5 29 37l12-12' fill='none' stroke='%23ffffff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-3.6 7-9.5V5l-7-2.5L5 5v6.5C5 17.4 12 21 12 21Z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+      <div class="brand-text">
+        <span class="brand-title">Gerador de Evidências</span>
+        <span class="brand-subtitle">Documentação de cenários de teste para QA</span>
+      </div>
+    </div>
+    <div class="topbar-meta">
+      <span class="autosave-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+        <span>Salvo automaticamente</span>
+      </span>
+      <span class="topbar-divider" aria-hidden="true"></span>
+      <img class="company-logo" src="logo-pagprime.png" alt="Pagprime IP">
+    </div>
+  </div>
+</header>
+
+<main class="app-shell">
+  <div class="layout">
+
+    <div class="col-form">
+
+      <section class="card" id="secGeral">
+        <div class="card-header">
+          <span class="step-badge">1</span>
+          <div class="card-header-text">
+            <h2>Informações Gerais</h2>
+            <p class="card-subtitle">Escopo, objetivo e portais cobertos por este relatório</p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="field">
+            <label for="escopo">Resumo do Escopo</label>
+            <textarea id="escopo" rows="3" placeholder="Ex: Testes de regressão do módulo de matrícula..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="objetivo">Objetivo do Documento</label>
+            <textarea id="objetivo" rows="3" placeholder="Ex: Validar as funcionalidades alteradas na sprint 12..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="portalInput">Portal(is)</label>
+            <div class="chip-input-row">
+              <input type="text" id="portalInput" placeholder="Ex: Portal do Aluno ou https://...">
+              <button type="button" id="btnAddPortal" class="btn btn-secondary btn-icon-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                <span>Adicionar</span>
+              </button>
+            </div>
+            <div class="chips" id="portaisChips"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="secCenario">
+        <div class="card-header">
+          <span class="step-badge">2</span>
+          <div class="card-header-text">
+            <h2 id="cenarioFormTitle">Adicionar Cenário</h2>
+            <p class="card-subtitle">Detalhe o caso de teste executado e anexe as evidências</p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="field-grid">
+            <div class="field field-numero">
+              <label for="numero">Número</label>
+              <input type="text" id="numero" placeholder="001">
+            </div>
+            <div class="field">
+              <label for="status">Status <span class="required">*</span></label>
+              <div class="select-wrap">
+                <select id="status">
+                  <option value="">Selecione...</option>
+                  <option value="Aprovado">Aprovado</option>
+                  <option value="Reprovado">Reprovado</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="funcionalidade">Funcionalidade <span class="required">*</span></label>
+            <input type="text" id="funcionalidade" placeholder="Ex: Login com usuário válido">
+          </div>
+
+          <div class="field">
+            <label for="preCondicao">Pré-Condição</label>
+            <textarea id="preCondicao" rows="2" placeholder="Ex: Usuário cadastrado e ativo no sistema"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="procedimento">Procedimento</label>
+            <textarea id="procedimento" rows="3" placeholder="Passo a passo executado"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="resultadoEsperado">Resultado Esperado</label>
+            <textarea id="resultadoEsperado" rows="2" placeholder="O que deveria acontecer"></textarea>
+          </div>
+
+          <div class="field">
+            <label>Evidências</label>
+            <div class="evidence-zone" id="evidenceZone" tabindex="0">
+              <span class="evidence-zone-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+              </span>
+              <p class="evidence-title">Arraste imagens aqui</p>
+              <p class="evidence-hint">ou clique nesta área e pressione <kbd>Ctrl</kbd> + <kbd>V</kbd> para colar um print</p>
+              <div class="thumbs" id="thumbs"></div>
+            </div>
+          </div>
+
+          <div class="actions-row">
+            <button id="btnAddScenario" class="btn btn-primary btn-icon-label">
+              <svg class="icon-add" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+              <svg class="icon-edit" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              <span class="btn-label">Adicionar Cenário</span>
+            </button>
+            <button id="btnClearScenario" class="btn btn-ghost">Limpar Formulário</button>
+            <button id="btnCancelEdit" class="btn btn-ghost" hidden>Cancelar edição</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="secList">
+        <div class="card-header">
+          <span class="step-badge">3</span>
+          <div class="card-header-text">
+            <h2>Cenários Adicionados</h2>
+            <p class="card-subtitle">Reordene, edite ou remova os cenários já documentados</p>
+          </div>
+          <span class="count-pill"><span id="countScenarios">0</span> cenários</span>
+        </div>
+
+        <div class="card-body">
+          <div id="scenarioList" class="scenario-list"></div>
+        </div>
+      </section>
+
+      <section class="card toolbar-card">
+        <div class="card-header">
+          <span class="step-badge step-badge-muted" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 1 1.4 0l1.2 1.2a1 1 0 0 1 0 1.4l-1.6 1.6a1 1 0 0 0 0 1.4l3.4 3.4a1 1 0 0 1 0 1.4l-1.2 1.2a1 1 0 0 1-1.4 0L16 12.7a1 1 0 0 0-1.4 0l-4.3 4.3a1 1 0 0 1-1.4 0l-1.2-1.2a1 1 0 0 1 0-1.4l4.3-4.3a1 1 0 0 0 0-1.4L8.6 5.3a1 1 0 0 1 0-1.4l1.2-1.2a1 1 0 0 1 1.4 0Z"/></svg>
+          </span>
+          <div class="card-header-text">
+            <h2>Ações do Relatório</h2>
+            <p class="card-subtitle">Exporte, salve ou reinicie o relatório atual</p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="footer-actions">
+            <div class="footer-actions-group">
+              <button id="btnPdf" class="btn btn-secondary btn-icon-label">
+                <span class="btn-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </span>
+                <span class="btn-spinner" hidden></span>
+                <span>Baixar PDF</span>
+              </button>
+              <button id="btnSaveBackup" class="btn btn-secondary btn-icon-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/></svg>
+                <span>Salvar backup (.json)</span>
+              </button>
+              <button id="btnLoadBackup" class="btn btn-secondary btn-icon-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span>Carregar backup</span>
+              </button>
+              <input type="file" id="fileBackup" accept="application/json" hidden>
+            </div>
+            <button id="btnNewReport" class="btn btn-danger-ghost btn-icon-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="m19 6-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+              <span>Novo Relatório</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="col-preview">
+      <section class="card preview-card">
+        <div class="preview-header">
+          <div>
+            <h2>Pré-visualização</h2>
+            <p class="card-subtitle">Copie e cole mantendo a formatação da tabela</p>
+          </div>
+          <button id="btnCopy" class="btn btn-primary btn-icon-label btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copiar</span>
+          </button>
+        </div>
+        <div id="preview" class="preview-content"></div>
+      </section>
+    </div>
+
+  </div>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite">
+  <span class="toast-icon toast-icon-success">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+  </span>
+  <span class="toast-icon toast-icon-error" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  </span>
+  <span id="toastMsg" class="toast-msg"></span>
+</div>
+
+<div id="confirmOverlay" class="modal-overlay" hidden>
+  <div class="modal-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmMessage">
+    <span class="modal-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    </span>
+    <h3 id="confirmTitle" class="modal-title"></h3>
+    <p id="confirmMessage" class="modal-message"></p>
+    <div class="modal-actions">
+      <button type="button" id="confirmCancelBtn" class="btn btn-secondary">Cancelar</button>
+      <button type="button" id="confirmOkBtn" class="btn btn-danger">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
