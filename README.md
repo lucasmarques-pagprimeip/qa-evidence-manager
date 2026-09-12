@@ -139,14 +139,6 @@ Homologação / Registro do resultado
 
 ---
 
-## 📌 Status do projeto
-
-🚧 **Em desenvolvimento**
-
-O projeto está sendo evoluído continuamente com novas funcionalidades voltadas à automação e melhoria do processo de coleta e gerenciamento de evidências de QA.
-
----
-
 ## 🔮 Próximos passos
 
 Algumas funcionalidades que podem ser incorporadas ao projeto:
