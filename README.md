@@ -161,7 +161,6 @@ Algumas funcionalidades que podem ser incorporadas ao projeto:
 
 **Lucas Marques**
 
-Quality Assurance | QA
 ---
 
 ## 📄 Licença
