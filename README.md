@@ -69,13 +69,13 @@ QA-Evidence/
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/Lucasm12/Qa_PagPrime.git
+git clone https://github.com/lucasmarques-pagprimeip/qa-evidence-manager
 ```
 
 ### 2. Acesse o diretório
 
 ```bash
-cd Qa_PagPrime
+cd qa-evidence-manager
 ```
 
 ### 3. Execute o projeto
